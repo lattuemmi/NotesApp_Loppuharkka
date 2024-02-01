@@ -1,17 +1,17 @@
 <script>
 
-    export let courseName;
-    export let courseID;
-    export let notes = 0;
+    export let noteCourse;
+    export let noteID;
+    export let text = 0;
 
     // export let course_data;
 </script>
 
 <div>
-    <h3>Kurssi: {courseName}</h3>
-    <p>Kurssi ID: {courseID}</p>
-    {#if notes !== 0}
-        <p>Muistiinpanot: {notes}</p>
+    <h3>ID: {noteCourse}</h3>
+    <p>Kurssi ID: {noteID}</p>
+    {#if text !== 0}
+        <p>Muistiinpanot: {text}</p>
 
     {:else}
         <p>Ei muistiinpanoja!</p>
