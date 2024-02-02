@@ -1,7 +1,6 @@
 <script>
 
-    import AddNote from "./AddNote.svelte";
-    import NotesList from "./NotesList.svelte";
+    import { goto } from '$app/navigation';
     import Footer from "./Footer.svelte";
     import Header from "./Header.svelte";
 
@@ -12,15 +11,15 @@
 
 
 <div class="nippulat">
-    <button class="nappula">Create notes for a class</button>
+    <button class="nappula" on:click={()=> goto('./create-notes')}>Create notes for a class</button>
 </div>
 
 <div class="nippulat">
-    <button class="nappula">List notes</button>
+    <button class="nappula" on:click={()=> goto('./list-notes')}>List notes</button>
 </div>
 
 <div class="nippulat">
-    <button class="nappula">Add course</button>
+    <button class="nappula" on:click={()=> goto('./add-course')}>Add course</button>
 </div>
 
 </main>

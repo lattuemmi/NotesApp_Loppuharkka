@@ -2,7 +2,7 @@
 
     import { noteStore } from '$lib/noteStore.js';
 
-    import Note from "./Note.svelte";    
+    import Note from '../Note.svelte';
 
 </script>
 
