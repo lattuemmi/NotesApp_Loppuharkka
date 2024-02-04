@@ -15,13 +15,23 @@
 
 </script>
 
+<div class="course-dropdown">
+    <p>Course:</p>
+
 <select bind:value={currentCourse}>
     {#each dropdownContent as course, i}
         <option selected={i === 0 ? 'selected' : ''} value={course.key}>{course.display} - {i}</option>
     {/each}
 </select>
 
+</div>
+
 <!-- <span>
     Selected key: {currentCourse.key}
 </span> -->
 
+<style>
+    .course-dropdown{
+        display: inline-flex;
+    }
+</style>
