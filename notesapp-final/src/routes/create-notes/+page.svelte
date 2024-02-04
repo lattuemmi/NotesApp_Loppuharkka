@@ -1,10 +1,13 @@
 <script>
+    import BackButton from "../BackButton.svelte";
     import Footer from "../Footer.svelte";
     import Header from "../Header.svelte";
     import Dropdown from "./Dropdown.svelte";
 
 
 </script>
+
+<BackButton />
 
 <Header />
 
