@@ -2,13 +2,10 @@
     import Footer from "../Footer.svelte";
     import Header from "../Header.svelte";
     import BackButton from "../BackButton.svelte";
-    import AddNote from "./AddNote.svelte";
+    import AddCourse from "./AddCourse.svelte";
 </script>
 
 <BackButton />
 
-<Header />
 
-<AddNote />
-
-<Footer />
+<AddCourse />

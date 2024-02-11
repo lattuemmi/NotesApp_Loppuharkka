@@ -1,37 +1,40 @@
-<script>
+<!-- <script>
+    //import { noteStore } from '$lib/noteStore.js';
+    import courseStore from '$lib/courses.json';
 
-    const dropdownContent = [
-        { key: ['filterAll'], display: 'All Columns' },
-        { key: ['name1', 'name2' ], display: 'Entry Names' },
-        { key: ['ID1', 'ID2' ], display: 'Entry IDs' },
-        { key: ['name1'], display: 'Entry 1 Name' },
-        { key: ['ID1'], display: 'Entry 1 ID' },
-        { key: ['name2'], display: 'Entry 2 Name' },
-        { key: ['ID2'], display: 'Entry 2 ID' },
-    ];
+    import { onMount } from 'svelte';
 
-    let currentCourse = dropdownContent[0].key;
-    $: console.log(currentCourse);
+    let courses = courseStore;
 
+    onMount(() => {
+        const unsubscribe = courseStore.subscribe(value => {
+            courses = value;
+        });
+
+        return unsubscribe;
+    });
+
+    export let selectedCourse;
+
+    $: console.log(selectedCourse);
 </script>
 
 <div class="course-dropdown">
-    <p>Course:</p>
+    <div>
+        <p>Course:</p>
+    </div>
 
-<select bind:value={currentCourse}>
-    {#each dropdownContent as course, i}
-        <option selected={i === 0 ? 'selected' : ''} value={course.key}>{course.display} - {i}</option>
-    {/each}
-</select>
-
+    <div>
+        <select bind:value={selectedCourse}>
+            {#each courses as course}
+                <option value={course.id}>{course.name}</option>
+            {/each}
+        </select>
+    </div>
 </div>
-
-<!-- <span>
-    Selected key: {currentCourse.key}
-</span> -->
 
 <style>
     .course-dropdown{
-        display: inline-flex;
+        display: flex;
     }
-</style>
+</style> -->

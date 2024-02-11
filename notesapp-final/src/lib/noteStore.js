@@ -2,25 +2,58 @@ import {writable} from 'svelte/store';
 
 function createNotes () {
 
-    let frontti = {
-        noteName: "PeepoPogWow",
-        noteID: "04",
-        text: 0
+    let og_notes = [
+        {
+        "id": 0,
+        "text": "add lisää",
+        "course": {
+        "id": 0,
+        "name": "versionhallinta"
+        },
+        "timestamp": "2022-11-23T13:13:13"
+        },
+        {
+        "id": 1,
+        "text": "commit tallenta",
+        "course": {
+        "id": 0,
+        "name": "versionhallinta"
+        },
+        "timestamp": "2022-11-23T13:33:13"
+        },
+        {
+        "id": 2,
+        "text": "push työntää muutokset remoteen",
+        "course": {
+        "id": 0,
+        "name": "versionhallinta"
+        },
+        "timestamp": "2022-11-24T13:13:13"
+        },
+        {
+        "id": 3,
+        "text": "talar du svenska",
+        "course": {
+        "id": 2,
+        "name": "ruotsi"
+        },
+        "timestamp": "2022-11-22T08:23:12"
+        }
+       ];
+
+    const noteStore = writable(og_notes);
+
+    const addNote = (newNote) => {
+        noteStore.update( (noteStore) => {
+            let id = noteStore.length;
+            return [...noteStore, {id, ...newNote}];
+        });
     };
 
-    let og_notes = [
-        {noteName: "Frontti", noteID: "01"},
-        {noteName: "Ruotti", noteID: "02"},
-        {noteName: "Webbi", noteID: "03"},
-        {...frontti}
-    ];
-
-    const { subscribe, set, update } = writable(og_notes);
-
     return{
-        subscribe,
-        add: (newNotes) => update((noteStore) => [...noteStore, newNotes]),
-        reset: () => set([])
+        subscribe: noteStore.subscribe,
+        add: addNote,
+        reset: () => noteStore.set([]),
     };
 }
 
